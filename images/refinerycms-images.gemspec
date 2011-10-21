@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version           = %q{1.0.8}
   s.summary           = %q{Images engine for Refinery CMS}
   s.description       = %q{Handles all image upload and processing functionality in Refinery CMS.}
-  s.date              = %q{2011-10-15}
+  s.date              = %q{2011-10-21}
   s.email             = %q{info@refinerycms.com}
   s.homepage          = %q{http://refinerycms.com}
   s.rubyforge_project = %q{refinerycms}
@@ -72,6 +72,7 @@ Gem::Specification.new do |s|
     'db',
     'db/migrate',
     'db/migrate/20100913234707_create_refinerycms_images_schema.rb',
+    'db/migrate/20111021152842_acts_as_taggable_on_migration.rb',
     'features',
     'features/manage_images.feature',
     'features/step_definitions',
@@ -91,9 +92,10 @@ Gem::Specification.new do |s|
     'license.md',
     'refinerycms-images.gemspec',
     'spec',
-    'spec/lib',
     'spec/models',
     'spec/models/image_spec.rb',
+    'spec/requests',
+    'spec/requests/images_spec.rb',
     'spec/uploads',
     'spec/uploads/beach.jpeg'
   ]
