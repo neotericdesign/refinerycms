@@ -24,6 +24,11 @@
   <div class='field'>
     <label><%= t('.maximum_image_size', :megabytes => Image::MAX_SIZE_IN_MB) %></label>
   </div>
+  
+  <div class='field'>
+    <%= f.label :tag_list, "Tags" %>
+    <%= f.text_field :tag_list, :class => 'larger' %>
+  </div>
 
   <input type='hidden' name='wymeditor' value='<%= params[:wymeditor] %>'>
 
