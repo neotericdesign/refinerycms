@@ -27,7 +27,7 @@ class Image < ActiveRecord::Base
   PAGES_PER_ADMIN_INDEX = 20
 
   # allows Mass-Assignment
-  attr_accessible :id, :image, :image_size
+  attr_accessible :id, :image, :image_size, :tag_list
 
   delegate :size, :mime_type, :url, :width, :height, :to => :image
 
