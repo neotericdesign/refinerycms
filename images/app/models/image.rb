@@ -52,6 +52,10 @@ class Image < ActiveRecord::Base
         :large => '450x450>'
       }, :destroyable => false)
     end
+    
+    def tags
+      tag_counts_on(:tags)
+    end
   end
 
   # Get a thumbnail job object given a geometry.

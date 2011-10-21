@@ -14,3 +14,14 @@
     </li>
   <% end %>
 </ul>
+
+<div id="image_tags">
+  <h2>Tags</h2>
+  <ul>
+    <% Image.tags.each do |tag| %>
+      <li class="<%= cycle 'odd','even' %>">
+        <%= link_to tag.name, tagged_admin_images_path(tag) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

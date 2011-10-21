@@ -9,7 +9,14 @@ module Admin
             :xhr_paging => true
 
     before_filter :change_list_mode_if_specified, :init_dialog
-
+    
+    def tagged
+      @tag = ActsAsTaggableOn::Tag.find(params[:tag_id])
+      @images = Image.tagged_with(@tag.name)
+      paginate_images
+      render :template => 'admin/images/index'
+    end
+    
     def new
       @image = Image.new if @image.nil?
 

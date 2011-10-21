@@ -6,6 +6,7 @@
     resources :images, :except => :show do
       collection do
         get :insert
+        get 'tagged/:tag_id' => 'images#tagged', :as => 'tagged'
       end
     end
   end
