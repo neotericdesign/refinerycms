@@ -98,8 +98,9 @@ Gem::Specification.new do |s|
     'spec/uploads/beach.jpeg'
   ]
 
-  s.add_dependency 'refinerycms-core', '= 1.0.8'
-  s.add_dependency 'activerecord',     '~> 3.0.10'
-  s.add_dependency 'dragonfly',        '~> 0.9.0'
-  s.add_dependency 'rack-cache',       '>= 0.5.3'
+  s.add_dependency 'refinerycms-core',    '= 1.0.8'
+  s.add_dependency 'activerecord',        '~> 3.0.10'
+  s.add_dependency 'dragonfly',           '~> 0.9.0'
+  s.add_dependency 'rack-cache',          '>= 0.5.3'
+  s.add_dependency 'acts-as-taggable-on', '~> 2.1.0'
 end
