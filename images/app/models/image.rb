@@ -63,7 +63,7 @@ class Image < ActiveRecord::Base
   end
   
   def alt_attr
-    alt_attribute || description || ''
+    alt_attribute || description || name || ''
   end
   
   def title_attr
