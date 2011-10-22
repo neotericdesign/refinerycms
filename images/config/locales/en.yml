@@ -9,9 +9,9 @@ en:
       edit: Edit this image
       form:
         image: Image
-        use_current_image: Use current image
+        use_current_image: Use current file
         or: or
-        replace_image: " replace it with this one..."
+        replace_image: "Replace with new file"
         current_image: Current Image
         maximum_image_size: The maximum image size is %{megabytes} megabytes.
       actions:

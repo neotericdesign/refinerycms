@@ -6,23 +6,30 @@
                :include_object_name => false
              } %>
 
-  <div class='field'>
+  <div id="image_file" class='field'>
+    <h2>File</h2>
     <% if action_name =~ /(edit)|(update)/ %>
-      <p>
-        <%= t('.use_current_image') %>
-        <em><%= t('.or') %></em><%= t('.replace_image') %>
-      </p>
-      <p>
-        <%= f.file_field :image %>
-      </p>
+      <div class="field">
+        <p>
+          <%= radio_button nil, :keep, nil, :name => 'which_image', :checked => true %>
+          <label for="_keep"><%= t('.use_current_image') %></label><br>
+          <span id="current_image">
+            <%= image_fu @image, '225x255>', :class => "brown_border" %>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p>
+          <%= radio_button nil, :replace, nil, :name => 'which_image', :checked => false %>
+          <label for="_replace"><%= t('.replace_image') %></label><br>
+          <%= f.file_field :image %>
+          <p><span><%= t('.maximum_image_size', :megabytes => Image::MAX_SIZE_IN_MB) %></span></p>
+        </p>
+      </div>
     <% else %>
       <% # we must only hint at multiple when it's a new record otherwise update fails. %>
       <%= f.file_field :image, :multiple => true %>
     <% end %>
-  </div>
-
-  <div class='field'>
-    <label><%= t('.maximum_image_size', :megabytes => Image::MAX_SIZE_IN_MB) %></label>
   </div>
   
   <div class='field'>
@@ -75,10 +82,5 @@
     <input type='hidden' name='conditions' value='<%= @conditions %>' />
   <% end %>
 <% end %>
-
-<% if action_name =~ /(edit)|(update)/ %>
-  <div id='existing_image'>
-    <label><%=t('.current_image') %></label>
-    <%= image_fu @image, '225x255>', :class => "brown_border" %>
-  </div>
-<% end %>
+<% content_for :stylesheets, render('form.css') %>
+<% content_for :javascripts, render('form.js') %>

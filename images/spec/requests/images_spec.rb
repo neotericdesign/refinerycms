@@ -28,7 +28,7 @@ describe "Images" do
     end
   end
   
-  describe "other optional fields", :focus => true do
+  describe "other optional fields" do
     it "include a name" do
       visit new_admin_image_path
       attach_file 'image_image', "#{Rails.root}/images/spec/uploads/beach.jpeg"
@@ -47,7 +47,6 @@ describe "Images" do
       
       current_path.should eq(admin_images_path)
       page.should have_content(Image.last.title)
-      p Image.all
       Image.last.description.should eq("A lovely day for the beach")
     end
     
