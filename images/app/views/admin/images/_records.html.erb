@@ -3,7 +3,7 @@
 <% end %>
 <% if @images.any? %>
   <div class='pagination_container'>
-    <%= "Images tagged \"#{@tag.name}\"" if @tag %>
+    <%= "<h2>Images tagged \"#{@tag.name}\"</h2>".html_safe if @tag %>
     <%= render :partial => 'images' %>
   </div>
 <% else %>
