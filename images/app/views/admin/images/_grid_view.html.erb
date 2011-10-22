@@ -1,7 +1,7 @@
 <ul id="image_grid" class="<%= ['clearfix', 'pagination_frame', pagination_css_class].compact.join(' ') %>">
   <% @images.each_with_index do |image, index| -%>
     <li id="image_<%= image.id %>" class='image image_<%= index % 5 %>'>
-      <%= image_fu image, '135x135#c', :title => image.title %>
+      <%= image_fu image, '135x135#c', :title => image.display_name %>
       <span class="name"><%= image.display_name %></span>
       <span class='actions'>
         <%= link_to refinery_icon_tag('delete.png'), admin_image_path(image),
