@@ -52,7 +52,7 @@ module Admin
           @images << (@image = Image.create(params[:image]))
         else
           params[:image][:image].each do |image|
-            @images << (@image = Image.create(:image => image))
+            @images << (@image = Image.create(:image => image, :tag_list => params[:image][:tag_list]))
           end
         end
       rescue Dragonfly::FunctionManager::UnableToHandle
