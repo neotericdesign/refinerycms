@@ -26,10 +26,35 @@
   </div>
   
   <div class='field'>
+    <%= f.label :name, "Image Name <span>(Optional)</span>".html_safe %>
+    <%= f.text_field :name, :class => 'larger' %>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :description, "Description <span>(Optional)</span>".html_safe %>
+    <%= f.text_area :description, :size => '50x3' %>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :caption, "Caption <span>(Optional)</span>".html_safe %>
+    <%= f.text_field :caption, :class => 'larger' %>
+  </div>
+  
+  <div class='field'>
     <%= f.label :tag_list, "Tags" %>
     <%= f.text_field :tag_list, :class => 'larger' %>
   </div>
+  
+  <div class='field'>
+    <%= f.label :alt_attribute, "Alt Attribute <span>(Optional)</span>".html_safe %>
+    <%= f.text_field :alt_attribute, :class => 'larger' %>
+  </div>
 
+  <div class='field'>
+    <%= f.label :title_attribute, "Title Attribute <span>(Optional)</span>".html_safe %>
+    <%= f.text_field :title_attribute, :class => 'larger' %>
+  </div>
+  
   <input type='hidden' name='wymeditor' value='<%= params[:wymeditor] %>'>
 
   <%= render :partial => "/shared/admin/form_actions",

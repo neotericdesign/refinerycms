@@ -27,7 +27,7 @@ class Image < ActiveRecord::Base
   PAGES_PER_ADMIN_INDEX = 20
 
   # allows Mass-Assignment
-  attr_accessible :id, :image, :image_size, :tag_list
+  attr_accessible :id, :image, :image_size, :tag_list, :name, :description, :caption, :alt_attribute, :title_attribute
 
   delegate :size, :mime_type, :url, :width, :height, :to => :image
 
@@ -56,6 +56,10 @@ class Image < ActiveRecord::Base
     def tags
       tag_counts_on(:tags)
     end
+  end
+  
+  def display_name
+    name || title
   end
 
   # Get a thumbnail job object given a geometry.
