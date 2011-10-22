@@ -61,6 +61,14 @@ class Image < ActiveRecord::Base
   def display_name
     name || title
   end
+  
+  def alt_attr
+    alt_attribute || description || ''
+  end
+  
+  def title_attr
+    title_attribute || caption || display_name
+  end
 
   # Get a thumbnail job object given a geometry.
   def thumbnail(geometry = nil)
