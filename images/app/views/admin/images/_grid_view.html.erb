@@ -2,7 +2,7 @@
   <% @images.each_with_index do |image, index| -%>
     <li id="image_<%= image.id %>" class='image image_<%= index % 5 %>'>
       <%= image_fu image, '135x135#c', :title => image.display_name %>
-      <span class="name"><%= image.display_name %></span>
+      <span class="name"><%=truncate image.display_name, :length => 10 %></span>
       <span class='actions'>
         <%= link_to refinery_icon_tag('delete.png'), admin_image_path(image),
                     :class => "cancel confirm-delete",
