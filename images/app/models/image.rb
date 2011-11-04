@@ -14,7 +14,7 @@ class Image < ActiveRecord::Base
                      :message => :incorrect_format
 
   # Docs for acts_as_indexed http://github.com/dougal/acts_as_indexed
-  acts_as_indexed :fields => [:title]
+  acts_as_indexed :fields => [:title, :description, :tag_list]
   acts_as_taggable
   # when a dialog pops up with images, how many images per page should there be
   PAGES_PER_DIALOG = 18
