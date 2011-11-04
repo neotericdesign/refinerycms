@@ -7,6 +7,9 @@ $(document).ready(function(){
   init_modal_dialogs();
   init_tooltips();
   init_ajaxy_pagination();
+
+	//this was added for Images engine, but it should be available to all
+	$('.chzn-select').chosen();
 });
 
 if(typeof(window.onpopstate) == "object"){
