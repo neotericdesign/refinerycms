@@ -84,8 +84,33 @@ module Admin
         end
       end
     end
+    
+  def tags
+    @tags = Image.tag_counts_on(:tags).where(
+        ["tags.name #{op} ?", "#{wildcard}#{params[:term].to_s.downcase}#{wildcard}"]
+      ).map { |tag| {:id => tag.id, :value => tag.name}}
+    render :json => @tags.flatten
+  end
 
   protected
+    
+    def op
+      case ActiveRecord::Base.connection.adapter_name.downcase
+      when 'postgresql'
+        '~*'
+      else
+        'LIKE'
+      end
+    end
+    
+    def wildcard
+      case ActiveRecord::Base.connection.adapter_name.downcase
+      when 'postgresql'
+        '.*'
+      else
+        '%'
+      end
+    end
 
     def init_dialog
       @app_dialog = params[:app_dialog].present?
