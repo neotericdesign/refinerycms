@@ -1,5 +1,6 @@
 require 'dragonfly'
 require 'rack/cache'
+require 'acts-as-taggable-on'
 require 'refinerycms-core'
 
 module Refinery
