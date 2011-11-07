@@ -22,7 +22,8 @@
                          :alt => image.alt_attr,
                          :title => image.title_attr,
                          :id => "image_#{image.id}",
-                         :'data-id' => image.id
+                         :'data-id' => image.id,
+                         :'data-caption' => image.caption
                        }.merge(thumbnail_urls)) -%>
         </li>
       <% end -%>

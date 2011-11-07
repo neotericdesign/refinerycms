@@ -182,6 +182,7 @@ $.extend(WYMeditor, {
     TITLE                   : "title",
     TARGET                : "target",
     ALT                    : "alt",
+    CAPTION                : "data-caption",
     REL                     : 'rel',
     DIALOG_LINK             : "Link",
     DIALOG_IMAGE          : "Image",
@@ -475,6 +476,7 @@ $.fn.wymeditor = function(options) {
     altSelector:       ".wym_alt",
     textSelector:      ".wym_text",
     sizeSelector:      ".wym_size",
+    imgCaptionSelector:   ".wym_img_caption",
 
     rowsSelector:      ".wym_rows",
     colsSelector:      ".wym_cols",
@@ -1855,6 +1857,7 @@ WYMeditor.INIT_DIALOG = function(wym, selected, isIframe) {
     imgDialog.find(wym._options.titleSelector).val(img.attr(WYMeditor.TITLE));
     imgDialog.find(wym._options.altSelector).val(img.attr(WYMeditor.ALT));
     imgDialog.find(wym._options.sizeSelector).val(size);
+    imgDialog.find(wym._options.imgCaptionSelector).val(img.attr(WYMeditor.CAPTION));
 
     (src = src.split('.')).pop();
     doc.find("#existing_image_area_content li img[src^='" + src + "']").parents('li:first').addClass('selected');
@@ -1863,24 +1866,28 @@ WYMeditor.INIT_DIALOG = function(wym, selected, isIframe) {
   $(wym._options.dialogImageSelector).find(wym._options.submitSelector).click(function(e) {
     form = $(this.form);
     if ((url = form.find(wym._options.srcSelector).val()) != null && url.length > 0) {
-      (image = $(wym._doc.createElement("IMG")))
-        .attr(WYMeditor.SRC, url)
-        .attr(WYMeditor.TITLE, form.find(wym._options.titleSelector).val())
-        .attr(WYMeditor.ALT, form.find(wym._options.altSelector).val())
-        .attr(WYMeditor.REL, form.find(wym._options.sizeSelector).val())
-        .load(function(e){
-          $(this).attr({
-            'width': $(this).width()
-            , 'height': $(this).height()
-          });
-        });
+			(image = $(wym._doc.createElement("IMG")))
+	        .attr(WYMeditor.SRC, url)
+	        .attr(WYMeditor.TITLE, form.find(wym._options.titleSelector).val())
+	        .attr(WYMeditor.ALT, form.find(wym._options.altSelector).val())
+	        .attr(WYMeditor.REL, form.find(wym._options.sizeSelector).val())
+	        .load(function(e){
+	          $(this).attr({
+	            'width': $(this).width()
+	            , 'height': $(this).height()
+	          });
+	        });
+
+			caption = '<p class="clear">' + form.find(wym._options.imgCaptionSelector).val()
+				.toString() + '</p>'
+			(div = $(wym._doc.createElement("DIV"))).attr(WYMeditor.CLASS,'image-with-caption').html(image)
 
        // ensure we know where to put the image.
        if (replaceable == null) {
          replaceable = $(wym._doc.body).find("#" + wym._current_unique_stamp);
        }
        if (replaceable != null) {
-         replaceable.after(image).remove();
+         replaceable.after(div).remove();
        }
 
       // fire a click event on the dialogs close button
