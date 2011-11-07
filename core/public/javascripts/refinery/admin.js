@@ -69,7 +69,8 @@ init_chosen_for_images = function(){
 	}).change(function(){
 		var _self = $(this)
 		var tag_id = _self.val()
-		var url = '/refinery/images/insert?modal=true&wymeditor=true&tag_id=' + tag_id
+		var current_url = location.href.replace(/&tag_id=\d+/,'')
+		var url = current_url + '&tag_id=' + tag_id
 		location.href = url
 	})
 }
