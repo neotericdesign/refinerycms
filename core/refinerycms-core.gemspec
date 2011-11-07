@@ -3,10 +3,10 @@
 
 Gem::Specification.new do |s|
   s.name              = %q{refinerycms-core}
-  s.version           = %q{1.0.9}
+  s.version           = %q{1.1.0}
   s.summary           = %q{Core engine for Refinery CMS}
   s.description       = %q{The core of Refinery CMS. This handles the common functionality and is required by most engines}
-  s.date              = %q{2011-11-05}
+  s.date              = %q{2011-11-08}
   s.email             = %q{info@refinerycms.com}
   s.homepage          = %q{http://refinerycms.com}
   s.rubyforge_project = %q{refinerycms}
@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
   s.require_paths     = %w(lib)
   s.executables       = %w()
 
-  s.add_dependency 'refinerycms-base',            '= 1.0.9'
-  s.add_dependency 'refinerycms-settings',        '= 1.0.9'
+  s.add_dependency 'refinerycms-base',            '= 1.1.0'
+  s.add_dependency 'refinerycms-settings',        '= 1.1.0'
   s.add_dependency 'refinerycms-generators',      '~> 1.0'
   s.add_dependency 'acts_as_indexed',             '~> 0.7'
   s.add_dependency 'friendly_id_globalize3',      '~> 3.2.1'
@@ -181,6 +181,8 @@ Gem::Specification.new do |s|
     'public/500.html',
     'public/favicon.ico',
     'public/images',
+    'public/images/jquery',
+    'public/images/jquery/chosen-sprite.png',
     'public/images/refinery',
     'public/images/refinery/add.png',
     'public/images/refinery/admin_bg.png',
@@ -341,6 +343,7 @@ Gem::Specification.new do |s|
     'public/javascripts/jquery',
     'public/javascripts/jquery/GPL-LICENSE.txt',
     'public/javascripts/jquery/MIT-LICENSE.txt',
+    'public/javascripts/jquery/jquery.chosen.js',
     'public/javascripts/jquery/jquery.corner.js',
     'public/javascripts/jquery/jquery.html5-placeholder-shim.js',
     'public/javascripts/jquery/jquery.jcarousel.js',
@@ -400,6 +403,25 @@ Gem::Specification.new do |s|
     'public/stylesheets/application.css',
     'public/stylesheets/formatting.css',
     'public/stylesheets/home.css',
+    'public/stylesheets/jquery',
+    'public/stylesheets/jquery/chosen.css',
+    'public/stylesheets/jquery/ui-lightness',
+    'public/stylesheets/jquery/ui-lightness/images',
+    'public/stylesheets/jquery/ui-lightness/images/ui-bg_diagonals-thick_18_b81900_40x40.png',
+    'public/stylesheets/jquery/ui-lightness/images/ui-bg_diagonals-thick_20_666666_40x40.png',
+    'public/stylesheets/jquery/ui-lightness/images/ui-bg_flat_10_000000_40x100.png',
+    'public/stylesheets/jquery/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png',
+    'public/stylesheets/jquery/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png',
+    'public/stylesheets/jquery/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png',
+    'public/stylesheets/jquery/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png',
+    'public/stylesheets/jquery/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png',
+    'public/stylesheets/jquery/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png',
+    'public/stylesheets/jquery/ui-lightness/images/ui-icons_222222_256x240.png',
+    'public/stylesheets/jquery/ui-lightness/images/ui-icons_228ef1_256x240.png',
+    'public/stylesheets/jquery/ui-lightness/images/ui-icons_ef8c08_256x240.png',
+    'public/stylesheets/jquery/ui-lightness/images/ui-icons_ffd27a_256x240.png',
+    'public/stylesheets/jquery/ui-lightness/images/ui-icons_ffffff_256x240.png',
+    'public/stylesheets/jquery/ui-lightness/jquery-ui-1.8.13.custom.css',
     'public/stylesheets/refinery',
     'public/stylesheets/refinery/application.css',
     'public/stylesheets/refinery/formatting.css',

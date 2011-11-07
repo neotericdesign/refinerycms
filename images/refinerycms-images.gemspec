@@ -3,10 +3,10 @@
 
 Gem::Specification.new do |s|
   s.name              = %q{refinerycms-images}
-  s.version           = %q{1.0.9}
+  s.version           = %q{1.1.0}
   s.summary           = %q{Images engine for Refinery CMS}
   s.description       = %q{Handles all image upload and processing functionality in Refinery CMS.}
-  s.date              = %q{2011-11-05}
+  s.date              = %q{2011-11-08}
   s.email             = %q{info@refinerycms.com}
   s.homepage          = %q{http://refinerycms.com}
   s.rubyforge_project = %q{refinerycms}
@@ -32,7 +32,9 @@ Gem::Specification.new do |s|
     'app/views/admin/images/_existing_image.html.erb',
     'app/views/admin/images/_form.html.erb',
     'app/views/admin/images/_grid_view.html.erb',
+    'app/views/admin/images/_images.css.erb',
     'app/views/admin/images/_images.html.erb',
+    'app/views/admin/images/_images.js.erb',
     'app/views/admin/images/_list_view.html.erb',
     'app/views/admin/images/_list_view_image.html.erb',
     'app/views/admin/images/_records.html.erb',
@@ -40,6 +42,8 @@ Gem::Specification.new do |s|
     'app/views/admin/images/index.html.erb',
     'app/views/admin/images/insert.html.erb',
     'app/views/admin/images/new.html.erb',
+    'app/views/admin/shared',
+    'app/views/admin/shared/_autocomplete.html.erb',
     'config',
     'config/locales',
     'config/locales/bg.yml',
@@ -73,6 +77,7 @@ Gem::Specification.new do |s|
     'db/migrate',
     'db/migrate/20100913234707_create_refinerycms_images_schema.rb',
     'db/migrate/20111021152842_acts_as_taggable_on_migration.rb',
+    'db/migrate/20111022172703_add_enhancements_to_images.rb',
     'features',
     'features/manage_images.feature',
     'features/step_definitions',
@@ -92,6 +97,7 @@ Gem::Specification.new do |s|
     'license.md',
     'refinerycms-images.gemspec',
     'spec',
+    'spec/lib',
     'spec/models',
     'spec/models/image_spec.rb',
     'spec/requests',
@@ -100,9 +106,9 @@ Gem::Specification.new do |s|
     'spec/uploads/beach.jpeg'
   ]
 
-  s.add_dependency 'refinerycms-core', '= 1.0.9'
-  s.add_dependency 'activerecord',     '~> 3.0.10'
-  s.add_dependency 'dragonfly',        '~> 0.9.0'
-  s.add_dependency 'rack-cache',       '>= 0.5.3'
+  s.add_dependency 'refinerycms-core',    '= 1.1.0'
+  s.add_dependency 'activerecord',        '~> 3.0.10'
+  s.add_dependency 'dragonfly',           '~> 0.9.0'
+  s.add_dependency 'rack-cache',          '>= 0.5.3'
   s.add_dependency 'acts-as-taggable-on', '~> 2.1.0'
 end
