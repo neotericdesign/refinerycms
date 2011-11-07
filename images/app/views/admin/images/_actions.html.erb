@@ -15,16 +15,18 @@
   <% end %>
 </ul>
 
-<div id="image_tags">
-  <h2>Tags</h2>
-  <ul>
-    <% if @tag %>
-      <li class="odd"><%= link_to 'All images', admin_images_path %></li>
-    <% end %>
-    <% Image.tags.each do |tag| %>
-      <li class="<%= cycle 'even','odd' %>">
-        <%= link_to tag.name, tagged_admin_images_path(tag), :class => ('active' if request.fullpath =~ /#{tag.id}/) %>
-      </li>
-    <% end %>
-  </ul>
-</div>
+<% if (tags = Image.tags).any? %>
+  <div id="image_tags">
+    <h2>Tags</h2>
+    <ul>
+      <% if @tag %>
+        <li class="odd"><%= link_to 'All images', admin_images_path %></li>
+      <% end %>
+      <% tags.each do |tag| %>
+        <li class="<%= cycle 'even','odd' %>">
+          <%= link_to tag.name, tagged_admin_images_path(tag), :class => ('active' if request.fullpath =~ /#{tag.id}/) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
