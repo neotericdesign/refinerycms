@@ -1878,9 +1878,9 @@ WYMeditor.INIT_DIALOG = function(wym, selected, isIframe) {
             });
           });
 
-      (div = $(wym._doc.createElement("DIV"))).attr(WYMeditor.CLASS,'image-with-caption').html(image);
+      (div = $(wym._doc.createElement("P"))).attr(WYMeditor.CLASS,'image-with-caption').html(image);
       if ((caption_text = form.find(wym._options.imgCaptionSelector).val()) != null && caption_text.length > 0) {
-        div.append($(wym._doc.createElement('P')).html(caption_text).addClass('clear'));
+        div.append(caption_text);
       }
 
        // ensure we know where to put the image.

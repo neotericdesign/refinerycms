@@ -56,3 +56,21 @@ Clearfix docs
   display:block;
 }
 /* End hide from IE Mac */
+
+.image-with-caption{
+	display:inline-block;
+	width:auto;
+	background:#ccc;
+	font-size:12px;
+	text-align:center;
+	padding:5px;
+}
+.image-with-caption img{
+	display:block;
+	margin:0 0 5px;
+	padding:0;
+}
+.image-with-caption p{
+	margin:0;
+	padding:0;
+}
