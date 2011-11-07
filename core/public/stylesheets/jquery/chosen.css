@@ -6,6 +6,9 @@
   zoom: 1;
   *display: inline;
 }
+#content .chzn-container a:hover{
+	text-decoration:none;
+}
 .chzn-container .chzn-drop {
   background: #fff;
   border: 1px solid #aaa;
@@ -65,7 +68,7 @@
   width: 12px;
   height: 13px;
   font-size: 1px;
-  background: url(chosen-sprite.png) right top no-repeat;
+  background: url(/images/jquery/chosen-sprite.png) right top no-repeat;
 }
 .chzn-container-single .chzn-single abbr:hover {
   background-position: right -11px;
@@ -215,7 +218,7 @@
   width: 12px;
   height: 13px;
   font-size: 1px;
-  background: url(chosen-sprite.png) right top no-repeat;
+  background: url(/images/jquery/chosen-sprite.png) right top no-repeat;
 }
 .chzn-container-multi .chzn-choices .search-choice .search-choice-close:hover {
   background-position: right -11px;

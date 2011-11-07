@@ -1,5 +1,5 @@
 <div id='existing_image_area' class='dialog_area' <%= "style='display:none;'" if @image.errors.any? %>>
-  <%= collection_select nil, :tags, Image.tag_counts_on(:tags), :id, :name, {:include_blank => true}, { :class => 'chzn-select', :"data-placeholder" => "Filter by tag...", :style => "width:316px;" } %>
+  <%= collection_select :tag, :id, Image.tag_counts_on(:tags), :id, :name, {:include_blank => true}, { :"data-placeholder" => "Filter by tag...", :style => "width:316px;", :id => 'images_tag_filter' } %>
 
   <%= render :partial => '/shared/admin/search',
              :locals => {:url => insert_admin_images_path(params.dup.delete(:image))} %>

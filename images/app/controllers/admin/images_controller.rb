@@ -11,8 +11,7 @@ module Admin
     before_filter :change_list_mode_if_specified, :init_dialog
     
     def tagged
-      @tag = ActsAsTaggableOn::Tag.find(params[:tag_id])
-      @images = Image.tagged_with(@tag.name)
+      find_tagged_images
       paginate_images
       render :template => 'admin/images/index'
     end
@@ -29,17 +28,21 @@ module Admin
 
       @url_override = admin_images_path(request.query_parameters.merge(:insert => true))
 
-      if params[:conditions].present?
-        extra_condition = params[:conditions].split(',')
+      if not params[:tag_id].blank?
+        find_tagged_images
+      else
+        if params[:conditions].present?
+          extra_condition = params[:conditions].split(',')
 
-        extra_condition[1] = true if extra_condition[1] == "true"
-        extra_condition[1] = false if extra_condition[1] == "false"
-        extra_condition[1] = nil if extra_condition[1] == "nil"
+          extra_condition[1] = true if extra_condition[1] == "true"
+          extra_condition[1] = false if extra_condition[1] == "false"
+          extra_condition[1] = nil if extra_condition[1] == "nil"
+        end
+
+        find_all_images(({extra_condition[0].to_sym => extra_condition[1]} if extra_condition.present?))
       end
-
-      find_all_images(({extra_condition[0].to_sym => extra_condition[1]} if extra_condition.present?))
+      
       search_all_images if searching?
-
       paginate_images
 
       render :action => "insert"
@@ -93,6 +96,11 @@ module Admin
   end
 
   protected
+  
+    def find_tagged_images
+      @tag = ActsAsTaggableOn::Tag.find(params[:tag_id])
+      @images = Image.tagged_with(@tag.name)
+    end
     
     def op
       case ActiveRecord::Base.connection.adapter_name.downcase

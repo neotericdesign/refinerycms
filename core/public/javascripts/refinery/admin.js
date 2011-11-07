@@ -10,6 +10,7 @@ $(document).ready(function(){
 
 	//this was added for Images engine, but it should be available to all
 	$('.chzn-select').chosen();
+	init_chosen_for_images();
 });
 
 if(typeof(window.onpopstate) == "object"){
@@ -60,6 +61,17 @@ $.fn.applyMinimumHeightFromChildren = function() {
   });
   $(this).css('min-height', child_heights);
   return $(this);
+}
+
+init_chosen_for_images = function(){
+	$('#images_tag_filter').chosen({
+		allow_single_deselect: true
+	}).change(function(){
+		var _self = $(this)
+		var tag_id = _self.val()
+		var url = '/refinery/images/insert?modal=true&wymeditor=true&tag_id=' + tag_id
+		location.href = url
+	})
 }
 
 init_ajaxy_pagination = function(){
