@@ -67,7 +67,7 @@ Clearfix docs
 }
 .image-with-caption img{
 	display:block;
-	margin:0 0 5px;
+	margin:0 auto 5px;
 	padding:0;
 }
 .image-with-caption p{
